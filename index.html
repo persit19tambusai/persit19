@@ -96,9 +96,6 @@
     <script src="js/main.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        window.addEventListener('beforeinstallprompt', () => {
-  console.log('🎉 Event beforeinstallprompt detected!');
-});
 			let deferredPrompt;
 
 			// Cek apakah aplikasi sudah diinstal 
@@ -112,8 +109,6 @@
 			const installBtn = document.querySelector('#installBtn');
      
 			if (isInStandaloneMode) {
-        console.log('✅ standalone!');
-        console.log(isInStandaloneMode);
 			  installBtn.style.display = 'none';
 			  console.log('App sudah diinstal');
 			} else {
@@ -132,7 +127,6 @@
 			  }
 			  
 			  window.addEventListener('beforeinstallprompt', (e) => {
-        console.log('✅ beforeinstallprompt fired!');
 				e.preventDefault();
 				deferredPrompt = e;
 				installBtn.style.display = 'inline';
@@ -140,7 +134,6 @@
 
 			  installBtn.addEventListener('click', async () => {
 				installBtn.style.display = 'none';
-          alert("whys?");
 				deferredPrompt.prompt();
 				const { outcome } = await deferredPrompt.userChoice;
 				if (outcome === 'accepted') {
