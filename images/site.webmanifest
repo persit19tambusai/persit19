@@ -1,0 +1,26 @@
+{
+    "name": "PERSIT19",
+    "short_name": "Seksi Sosial",
+    "start_url": "https://tambusai19.github.io/tsc19.github.io/",
+    "icons": [
+        {
+            "src": "/images/persit.png",
+            "sizes": "192x192",
+            "type": "image/png",
+			"purpose": "maskable"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "description": "Selalu Bekerja Dengan Hati.",
+    "screenshots": [
+        {
+         "src": "/images/slider-1.jpg",
+          "sizes": "1080x1920",
+          "type": "image/png",
+          "form_factor": "narrow",
+          "label": "PERSIT19"
+        }
+    ],
+    "display": "standalone"
+}
