@@ -91,7 +91,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-			let deferredPrompt;
+			let deferredPrompts;
 
 			// Cek apakah aplikasi sudah diinstal 
 			// utk android window.matchMedia('(display-mode: standalone)').matches
@@ -104,6 +104,7 @@
 			const installBtn = document.querySelector('#installBtn');
      
 			if (isInStandaloneMode) {
+        alert('isInStandaloneMode' + isInStandaloneMode);
 			  installBtn.style.display = 'none';
 			  console.log('App sudah diinstal');
 			} else {
@@ -120,22 +121,22 @@
 				});
 				console.log('📱 Safari iOS terdeteksi — install manual');
 			  }
-			  
+			  alert('if ios '+ isIos);
 			  window.addEventListener('beforeinstallprompt', (e) => {
 				e.preventDefault();
-				deferredPrompt = e;
+				deferredPrompts = e;
 				installBtn.style.display = 'block';
          alert('block');
 			  });
 
 			  installBtn.addEventListener('click', async () => {
 				installBtn.style.display = 'none';
-				deferredPrompt.prompt();
-				const { outcome } = await deferredPrompt.userChoice;
+				deferredPrompts.prompt();
+				const { outcome } = await deferredPrompts.userChoice;
 				if (outcome === 'accepted') {
 				  console.log('User accepted the install prompt');
 				}
-				deferredPrompt = null;
+				deferredPrompts = null;
 			  });
 			}
 
