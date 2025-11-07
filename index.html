@@ -123,6 +123,7 @@
 			  }
 			  
 			  window.addEventListener('beforeinstallprompt', (e) => {
+          alert("why?");
 				e.preventDefault();
 				deferredPrompt = e;
 				installBtn.style.display = 'inline';
@@ -130,6 +131,7 @@
 
 			  installBtn.addEventListener('click', async () => {
 				installBtn.style.display = 'none';
+          alert("whys?");
 				deferredPrompt.prompt();
 				const { outcome } = await deferredPrompt.userChoice;
 				if (outcome === 'accepted') {
