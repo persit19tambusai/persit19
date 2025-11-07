@@ -10,7 +10,6 @@
 		
 		<link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
 		<link rel="stylesheet" href="css/style.css">
   </head>
   <body>
@@ -96,13 +95,16 @@
 
 			// Cek apakah aplikasi sudah diinstal 
 			// utk android window.matchMedia('(display-mode: standalone)').matches
-			const isInStandaloneMode = window.navigator.standalone === true;
+			const isInStandaloneMode = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+
 			// Helper: deteksi browser iOS
 			const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
 
 			// Sembunyikan tombol install jika sudah terinstal
 			const installBtn = document.querySelector('#installBtn');
+      alert(isInStandaloneMode);
 			if (isInStandaloneMode) {
+      alert(isInStandaloneMode);
 			  installBtn.style.display = 'none';
 			  console.log('App sudah diinstal');
 			} else {
