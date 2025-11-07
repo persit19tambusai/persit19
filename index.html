@@ -91,7 +91,8 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-			let deferredPrompts;
+      document.addEventListener('DOMContentLoaded', () => {
+			let deferredPrompt;
 
 			// Cek apakah aplikasi sudah diinstal 
 			// utk android window.matchMedia('(display-mode: standalone)').matches
@@ -124,19 +125,19 @@
 			  alert('if ios '+ isIos);
 			  window.addEventListener('beforeinstallprompt', (e) => {
 				e.preventDefault();
-				deferredPrompts = e;
+				deferredPrompt = e;
 				installBtn.style.display = 'block';
          alert('block');
 			  });
 
 			  installBtn.addEventListener('click', async () => {
 				installBtn.style.display = 'none';
-				deferredPrompts.prompt();
-				const { outcome } = await deferredPrompts.userChoice;
+				deferredPrompt.prompt();
+				const { outcome } = await deferredPrompt.userChoice;
 				if (outcome === 'accepted') {
 				  console.log('User accepted the install prompt');
 				}
-				deferredPrompts = null;
+				deferredPrompt = null;
 			  });
 			}
 
@@ -145,6 +146,7 @@
 					console.log("Service worker has been registered for scope: " + reg.scope);
 				});
 			}
+      });
 			</script>
   </body>
 </html>
