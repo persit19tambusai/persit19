@@ -103,14 +103,13 @@
 
 			// Sembunyikan tombol install jika sudah terinstal
 			const installBtn = document.querySelector('#installBtn');
-      installBtn.style.display = 'block';
      
 			if (isInStandaloneMode) {
 			  installBtn.style.display = 'none';
 			  console.log('App sudah diinstal');
 			} else {
 			  if (isIos) {
-				installBtn.style.display = 'block';
+				installBtn.style.display = 'inline';
 				installBtn.textContent = 'Tambahkan ke Layar Utama';
 				installBtn.addEventListener('click', () => {
 				  alert(
@@ -126,7 +125,7 @@
 			  window.addEventListener('beforeinstallprompt', (e) => {
 				e.preventDefault();
 				deferredPrompt = e;
-				installBtn.style.display = 'block';
+				installBtn.style.display = 'inline';
 			  });
 
 			  installBtn.addEventListener('click', async () => {
